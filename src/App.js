@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import AdminLogin from './pages/Admin/AdminLogin'
+import StationLogin from './pages/Station/StationLogin'
+import WorkerLogin from './pages/Worker/WorkerLogin'
+import Dashboard from './pages/Station/Dashboard'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Routes>
+      {/* Admin paths */}
+      <Route path='/admin-login' element={<AdminLogin />} />
 
-export default App;
+      {/* Station Paths */}
+      <Route path='/station-login' element={<StationLogin />} />
+      <Route path='/station-dashboard' element={<Dashboard />} />
+
+
+      {/* Worker Paths */}
+      <Route path='/worker-login' element={<WorkerLogin />} />
+
+
+    </Routes>
+  )
+}
