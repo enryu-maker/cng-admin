@@ -30,62 +30,18 @@ export default function Main() {
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <h3 className="text-lg font-medium text-gray-700">Total Bookings</h3>
                     <p className="text-3xl font-bold text-blue-600">{order?.length}</p>
-                    <div className="mt-3">
-                        <ResponsiveLineChart width="100%" height={150}>
-                            <LineChart data={bookingData}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="bookings" stroke="#8884d8" />
-                                <Legend />
-                            </LineChart>
-                        </ResponsiveLineChart>
-                    </div>
                 </div>
 
                 {/* Card 2: Available Workers */}
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <h3 className="text-lg font-medium text-gray-700">Available Workers</h3>
                     <p className="text-3xl font-bold text-yellow-600">{worker?.length}</p>
-                    <div className="mt-3">
-                        <ResponsiveContainer width="100%" height={150}>
-                            <PieChart>
-                                <Pie
-                                    data={[
-                                        { name: 'Available', value: worker?.length || 0 },
-                                        { name: 'Busy', value: 10 }, // Example value
-                                    ]}
-                                    dataKey="value"
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    label
-                                >
-                                    {worker?.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#0088FE' : '#FF8042'} />
-                                    ))}
-                                </Pie>
-                            </PieChart>
-                        </ResponsiveContainer>
-                    </div>
                 </div>
 
                 {/* Card 3: Revenue */}
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                     <h3 className="text-lg font-medium text-gray-700">Revenue</h3>
                     <p className="text-3xl font-bold text-indigo-600">₹{income}</p>
-                    <div className="mt-3">
-                        <ResponsiveLineChart width="100%" height={150}>
-                            <LineChart data={revenueData}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="revenue" stroke="#82ca9d" />
-                                <Legend />
-                            </LineChart>
-                        </ResponsiveLineChart>
-                    </div>
                 </div>
             </div>
 
