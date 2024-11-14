@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import StationSidebar from './components/StationSidebar'
 import { ThreeDots } from 'react-loader-spinner';
 import { useDispatch } from 'react-redux';
-import { getFuelStatus, getOrders, getPrice, getStationStatus, getWorker } from '../../store/actions/stationActions';
+import { getFuelStatus, getIncome, getOrders, getPrice, getStationStatus, getWorker } from '../../store/actions/stationActions';
 const Main = lazy(() => import('./Screens/Main'));
 const Order = lazy(() => import('./Screens/Order'));
 const Fuel = lazy(() => import('./Screens/Fuel'));
@@ -40,6 +40,8 @@ export default function Dashboard() {
         dispatch(getFuelStatus())
         dispatch(getStationStatus())
         dispatch(getPrice())
+        dispatch(getIncome())
+
     }, [dispatch])
     return (
         <div className="w-[100vw] flex justify-between bg-slate-50">

@@ -23,7 +23,7 @@ export default function StationSidebar({
             }}>
             <Menu
                 className=' space-y-5'>
-                <h1 className=' text-center mt-5 text-3xl font-semibold  font-Poppins'>QuickFill</h1>
+                <h1 className=' text-center mt-5 text-green-500 text-3xl font-semibold  font-Poppins'>QuickFill</h1>
                 {/* Dashboard Section */}
                 <MenuItem
                     onClick={() => {

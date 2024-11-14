@@ -4,7 +4,8 @@ const initialState = {
     worker: [],
     fuel: null,
     station_status: null,
-    fuel_price: null
+    fuel_price: null,
+    income: 0
 };
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -20,6 +21,8 @@ export default (state = initialState, action) => {
             return { ...state, station_status: action.payload };
         case 'SET_PRICE':
             return { ...state, fuel_price: action.payload };
+        case 'SET_INCOME':
+            return { ...state, income: action.payload };
         default:
             return state;
     }

@@ -385,6 +385,46 @@ export const getPrice = () => {
     }
 }
 
+export const getIncome = () => {
+    return async (dispatch) => {
+        try {
+            await axiosIns.get(baseURL + 'v1/order/station-total-income/')
+                .then((res) => {
+                    dispatch({
+                        type: "SET_INCOME",
+                        payload: res?.data?.total_income
+                    })
+                })
+                .catch((err) => {
+                    console.log(err);
+                    toast.error(err?.response?.data?.message || "Something went wrong!", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                });
+        }
+        catch (error) {
+            console.log(error);
+            toast.error(error?.response?.data?.message || "An error occurred during login.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
+}
+
 export const updatePrice = (amount) => {
     return async (dispatch) => {
         try {
