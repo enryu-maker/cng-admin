@@ -2,11 +2,11 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-export const baseURL = 'http://cng-be.vercel.app/'
+export const baseURL = 'https://cng-be.vercel.app/'
 
 let headers = {}
 const axiosIns = axios.create({
-    baseURL: 'http://cng-be.vercel.app/',
+    baseURL: 'https://cng-be.vercel.app/',
     headers
 })
 
