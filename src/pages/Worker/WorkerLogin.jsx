@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import OtpInput from 'react-otp-input';
+import { useDispatch } from 'react-redux';
+import { workerLogin } from '../../store/actions/workerActions';
+import { useNavigate } from 'react-router-dom';
 
 const WorkerLogin = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch()
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -13,11 +19,7 @@ const WorkerLogin = () => {
             setErrorMessage('Please fill in all fields');
             return;
         }
-
-        // Here you can integrate API call for login
-        console.log('Logging in with:', { phone, password });
-
-        // Reset form on successful login or handle the response accordingly
+        dispatch(workerLogin({ "phone_number": phone, "otp": password }, setLoading, navigate))
     };
 
     return (
