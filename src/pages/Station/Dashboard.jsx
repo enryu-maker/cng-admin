@@ -12,7 +12,7 @@ const Price = lazy(() => import('./Screens/Price'));
 
 
 
-export default function Dashboard() {
+export default function SDashboard() {
     const [path, setPath] = React.useState("dashboard");
     const dispatch = useDispatch()
     const renderComponent = () => {
